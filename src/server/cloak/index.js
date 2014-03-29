@@ -307,6 +307,11 @@ module.exports = (function() {
       }
     },
 
+    addMessage: function(name, fn) {
+      if(!config.messages) config.messages = {};
+      config.messages[name] = fn;
+    },
+
     messageAll: function(name, arg) {
       _(users).forEach(function(user) {
         user.message(name, arg);
